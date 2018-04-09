@@ -1,0 +1,26 @@
+html {
+  font-size: 30px;
+}
+
+h1 {
+  font-size: 1.5rem
+}
+
+ul {
+  font-size: 20px;
+}
+
+li {
+  font-size: 1.5em;
+}
+
+/*
+<p> tags will have 15px size.
+<ul> tags will have 12px size.
+*/
+
+
+@media (max-width: 600px) {
+  html {
+    font-size: 8px;
+  }

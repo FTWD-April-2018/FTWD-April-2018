@@ -1,0 +1,15 @@
+.menu-item, .second-list{
+  background-color: blue;
+  margin: 1px;
+}
+
+
+.second-list > li {
+  background-color: red;
+  margin: 1px;
+}
+
+
+.second-list > li > h4{
+  background-color: green;
+}

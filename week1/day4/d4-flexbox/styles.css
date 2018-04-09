@@ -1,0 +1,19 @@
+
+
+.flex-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  /*align-content: flex-start | flex-end | center | space-between | space-around | stretch;*/
+
+  /*align-items: flex-start | flex-end | center | baseline | stretch;*/
+  /*justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;*/
+}
+
+.flex-item{
+  display: inline;
+  min-height: 40px;
+  max-height: 200px;
+  background-color: green;
+  margin: 2px;
+}

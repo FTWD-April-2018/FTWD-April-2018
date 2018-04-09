@@ -1,0 +1,33 @@
+
+.left-top-box{
+  float: left;
+  height: 200px;
+  width: 350px;
+  border: 1px solid black;
+  position: relative;
+  top: 65vh;
+}
+
+.right-top-box{
+  float: right;
+  height: 200px;
+  width: 350px;
+  border: 1px solid black;
+}
+
+.titles{
+  display: inline-block;
+  margin-left: 10%;
+}
+
+.nav{
+  clear: both;
+  padding: 50px 0 30px 30px;
+  /*margin-left: 30px;*/
+  border-bottom: 1px solid black;
+}
+
+.nav a{
+  font-size: 22px;
+  margin: 0 10px;
+}
