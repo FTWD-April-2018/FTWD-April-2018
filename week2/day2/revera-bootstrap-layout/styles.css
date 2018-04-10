@@ -1,0 +1,28 @@
+.main-image{
+  height: 600px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('img/slider-1.jpg');
+}
+
+.top-navigation-bar{
+  height:100px;
+  padding: 20px;
+}
+
+.navigation-links{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  height: 100%;
+}
+
+.middle-info-row{
+  background-color: #c45a4e;
+  height: 150px;
+}
+
+.inner-row > .col-sm-4{
+  text-align: center;
+}
