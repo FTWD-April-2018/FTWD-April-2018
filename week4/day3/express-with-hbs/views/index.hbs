@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>My first view</title>
+  <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+  <h1>Hello, {{name}}</h1>
+  <h2>Welcome to {{bootcamp}}</h2>
+
+{{#if weHaveAWinner}}
+    <h2>Random Number Jackpot!!!</h2>
+{{/if}}
+  <h4>Here's a random number: {{random}}</h4>
+
+  <h3>Ironhacker Be Like</h3>
+  <img src="https://media.giphy.com/media/l0MYEqEzwMWFCg8rm/giphy.gif">
+
+<h3>Come find us in any of these cities:</h3>
+<ul>
+{{#each cities}}
+  {{#if @first}}
+    <li><b>{{this}}</b></li>
+  {{else if @last}}
+    <li><i>{{this}}</i></li>
+  {{else}}
+    <li>{{this}}</li>
+  {{/if}}
+{{/each}}
+</ul>
+
+<h5>Registered Address:</h5>
+{{#with address}}
+  <p>{{street}}, {{number}}</p>
+{{/with}}
+
+
+<p>{{address.number}} {{address.street}}</p>
+
+</body>
+</html>
