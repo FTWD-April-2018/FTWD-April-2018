@@ -8,15 +8,8 @@ const Schema   = mongoose.Schema;
 const bodyParser = require('body-parser');
 mongoose.connect('mongodb://localhost/cars');
 
+const Car = require('./models/car.js');
 
-const carSchema = new Schema({
-  brand : String,
-  model: String,
-  year  : {type:String},
-  color: String
-});
-
-const Car = mongoose.model('Car', carSchema);
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
