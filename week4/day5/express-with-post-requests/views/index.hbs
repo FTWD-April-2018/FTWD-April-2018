@@ -1,0 +1,16 @@
+<h1>List Of Cars</h1>
+
+<ul>
+{{#each theList}}
+<li>
+{{this.brand}}
+{{this.model}}
+{{this.year}}
+{{this.color}}
+<a href="/cars/edit/{{this._id}}">  Edit   </a>
+<form  action="/cars/delete/{{this._id}}" method="post">
+  <button type="submit"> Delete </button>
+</form>
+</li>
+{{/each}}
+</ul>

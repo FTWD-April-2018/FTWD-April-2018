@@ -1,0 +1,16 @@
+<h1>Edit Car</h1>
+
+<h2>{{car.brand}}</h2>
+<h3>{{car.model}}</h3>
+<h4>{{car.year}}</h4>
+<h5>{{car.color}}</h5>
+
+
+<form action="/cars/update/{{car._id}}" method="post">
+  <input type="text" name="brand" value="{{car.brand}}">
+  <input type="text" name="model" value="{{car.model}}">
+  <input type="text" name="year" value="{{car.year}}">
+  <input type="text" name="color" value="{{car.color}}">
+
+  <input type="submit" value="Submit Changes">
+</form>
