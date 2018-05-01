@@ -1,20 +1,22 @@
 require('dotenv').config();
 
-const bodyParser    = require('body-parser');
-const cookieParser  = require('cookie-parser');
-const express       = require('express');
-const favicon       = require('serve-favicon');
-const hbs           = require('hbs');
-const mongoose      = require('mongoose');
-const logger        = require('morgan');
-const path          = require('path');
-const User          = require('./models/user');
-const session       = require("express-session");
-const bcrypt        = require("bcrypt");
-const passport      = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
-const app           = express();
-const flash         = require("connect-flash");
+const bodyParser     = require('body-parser');
+const cookieParser   = require('cookie-parser');
+const express        = require('express');
+const favicon        = require('serve-favicon');
+const hbs            = require('hbs');
+const mongoose       = require('mongoose');
+const logger         = require('morgan');
+const path           = require('path');
+const User           = require('./models/user');
+const session        = require("express-session");
+const bcrypt         = require("bcrypt");
+const passport       = require("passport");
+const LocalStrategy  = require("passport-local").Strategy;
+const app            = express();
+const flash          = require("connect-flash");
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+
 
 
 mongoose.Promise = Promise;
@@ -88,7 +90,38 @@ passport.use(new LocalStrategy({
     return next(null, user);
   });
 }));
+
+
+
+passport.use(new GoogleStrategy({
+  clientID: "client ID here",
+  clientSecret: "client secret here",
+  callbackURL: "/auth/google/callback"
+}, (accessToken, refreshToken, profile, done) => {
+  User.findOne({ googleID: profile.id }, (err, user) => {
+    if (err) {
+      return done(err);
+    }
+    if (user) {
+      return done(null, user);
+    }
+
+    const newUser = new User({
+      googleID: profile.id
+    });
+
+    newUser.save((err) => {
+      if (err) {
+        return done(err);
+      }
+      done(null, newUser);
+    });
+  });
+
+}));
 // end passport config area
+
+
 
 
 app.use(passport.initialize());
