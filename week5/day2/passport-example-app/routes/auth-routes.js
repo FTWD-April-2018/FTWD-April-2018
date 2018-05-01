@@ -59,7 +59,7 @@ authRoutes.get("/login", (req, res, next) => {
 
 authRoutes.post("/login", passport.authenticate("local",
 {
-  successRedirect: "/private-page",
+  successRedirect: "/",
   failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true
@@ -71,9 +71,27 @@ authRoutes.get("/logout", (req, res) => {
   res.redirect("/login");
 });
 
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
 
-authRoutes.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render("auth/private", { user: req.user });
+    res.redirect('/login')
+  }
+}
+
+function checkRoles(role) {
+  return function(req, res, next) {
+    if (req.isAuthenticated() && req.user.role === role) {
+      return next();
+    } else {
+      res.redirect('/')
+    }
+  }
+}
+
+authRoutes.get('/private', checkRoles('ADMIN'), (req, res) => {
+  res.render('auth/private', {user: req.user});
 });
 
 
