@@ -8,6 +8,28 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const Schema       = mongoose.Schema;
+
+
+const citySchema = Schema({
+  name:  String,
+  id: Number
+});
+const City = mongoose.model("City", citySchema);
+
+const courseSchema = Schema({
+  name:  String,
+  id: Number,
+  type: String
+});
+const Course = mongoose.model("Course", courseSchema);
+
+const bootcampSchema = Schema({
+  id: Number,
+  cityId: Number,
+  courseId: Number
+});
+const Bootcamp = mongoose.model("Bootcamp", bootcampSchema);
 
 
 mongoose.Promise = Promise;
@@ -37,7 +59,7 @@ app.use(require('node-sass-middleware')({
   dest: path.join(__dirname, 'public'),
   sourceMap: true
 }));
-      
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -51,8 +73,19 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 
-const index = require('./routes/index');
-app.use('/', index);
+app.get("/cities", (req, res, next) => {
+  City.find((err, cities) => {
+  res.json(cities)
+  })
+});
+
+app.get('/cities/:id', (req, res, next)=>{
+City.findOne({id: req.params.id}, (err, theCity) =>{
+    res.json(theCity)
+  })
+})
+
+
 
 
 module.exports = app;
