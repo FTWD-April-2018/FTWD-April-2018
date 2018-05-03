@@ -1,0 +1,14 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+.message {
+  background-color: #bf4f39;
+  color: white;
+  text-align: center;
+  min-height: 30px; }
+
+/*# sourceMappingURL=style.css.map */
