@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto';
+  color: white;
+  background: url("/images/minions.jpg")
+}
+
+h1, h2 {
+  color: #d8b362;
+}
+
+button {
+  font-family: inherit;
+  font-size: 11px;
+  background: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 3px 6px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  border-radius: 50px;
+  border: 2px solid #fff;
+  color: #fff;
+  overflow: hidden;
+}
+
+.container {
+  width: 70%;
+  margin: 50px auto 0;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: rgba(88, 98, 123, 0.95);
+  text-align: center;
+}
+
+.characters-container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+.active {
+  background-color: #42f471;
+}
+
+.operations {
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.operation {
+  margin: 20px 0 0;
+}
+
+.character-info {
+  position: relative;
+  width: 40%;
+  margin: 10px;
+  padding: 10px;
+  text-align: left;
+  border: solid white 2px;
+  border-radius: 20px;
+}
+
+.character-info div span {
+  color: #d8b362;
+  position: absolute;
+  left: 50%;
+}
+
+.form-container {
+  display: inline-block;
+  width: 49%;
+  margin: 30px auto 0;
+  vertical-align: top;
+}
+
+.character-form {
+  width: 50%;
+  margin: 0 auto;
+  text-align: left;
+  clear: both;
+}
+
+.character-form label {
+  width: 100px;
+  display: inline-block;
+}
+
+.field {
+  margin: 5px 0;
+}
+
+.submit-button {
+  margin: 10px 0 0 120px;
+}
