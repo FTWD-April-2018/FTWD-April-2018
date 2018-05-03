@@ -1,6 +1,6 @@
-<h1>Add New Employee</h1>
+<h1>Log Into Your Account</h1>
 
-<form action="/signup" method="post">
+<form action="/login" method="post">
 
 <label> Username</label>
   <input type="text" name="username">
@@ -8,20 +8,12 @@
   <label>Password</label>
   <input type="password" name="password">
 
-<label>Role</label>
-  <select  name="role">
-    <option value="Developer">Developer</option>
-    <option value="Intern">Intern</option>
-  </select>
-
-
   <button>Submit</button>
 
 </form>
 
 <br>
 <br>
-
 {{#if message}}
 <div class="message">
   {{message}}
