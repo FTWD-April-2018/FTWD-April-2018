@@ -1,0 +1,24 @@
+<h1>Welcome to Cloudinary Demo</h1>
+
+<p>Create New User</p>
+<form action="/create" method="post" enctype="multipart/form-data">
+  <p>Username</p>
+  <input type="text" name="username">
+  <p>Password</p>
+  <input type="text" name="password">
+  <input type="file" name="photo">
+
+  <button >Submit</button>
+</form>
+
+<h2>See Users</h2>
+
+{{#each users}}
+<div>
+  <p>Username: {{this.username}}</p>
+  <p>Password: {{this.password}}</p>
+  <img src="{{this.imgPath}}" >
+
+</div>
+
+{{/each}}
