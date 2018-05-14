@@ -2,7 +2,6 @@ const express = require('express');
 const router  = express.Router();
 const User    = require('../models/user');
 const multer = require('multer');
-const upload  = multer({ dest: './public/uploads/' });
 
 const cloudinary = require('cloudinary');
 const uploadCloud = require('../config/cloudinary')
