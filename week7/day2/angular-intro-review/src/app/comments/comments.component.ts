@@ -18,7 +18,8 @@ export class CommentsComponent implements OnInit {
 
 
   addNew():void{
-    this.comments.push(this.newComment);
+    const newOne = {title: this.newComment.title, content: this.newComment.content}
+    this.comments.push(newOne);
   }
 
 
