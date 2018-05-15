@@ -15,11 +15,9 @@
   </li>
 </div>
 
-<div *ngIf="arrayVar.length <= 5">
-  <p>Wow, that's NOT a lot of animals</p>
-</div>
-
-
-<div *ngIf="arrayVar.length >= 7">
-  <p>Wow, that IS a lot of animals</p>
+<div [ngSwitch]="arrayVar.length">
+   <div *ngSwitchCase="5">  Wow, that's NOT a lot of animals </div>
+   <div *ngSwitchCase="6">  Wow, 6 animals is kind of a lot </div>
+   <div *ngSwitchCase="7">  Wow, 7 animals is definitely of a lot of animals </div>
+   <div *ngSwitchDefault> Thats too many animals for me to count</div>
 </div>

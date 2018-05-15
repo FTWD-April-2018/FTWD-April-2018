@@ -6,11 +6,14 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { CommentsComponent } from './comments/comments.component';
 
+import { CapitalizePipe } from './pipes/capitalize.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    CommentsComponent
+    CommentsComponent,
+    CapitalizePipe
   ],
   imports: [
     BrowserModule,

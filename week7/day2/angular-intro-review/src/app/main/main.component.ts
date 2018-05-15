@@ -12,7 +12,10 @@ imagePath: string = "/assets/images/truck.jpg";
 content: string = `Early this morning, a man in need received help from 3 concerned bystanders
 as they helped pull his car out of a ditch`
 // secretPhrase:string = "Another Secret Phrase"
+theDate:Number = Date.now();
 
+
+classArray:Array<String> = [];
 
   constructor() { }
   ngOnInit() {
@@ -20,8 +23,8 @@ as they helped pull his car out of a ditch`
 
 
 
-  sayHi(arg:string):void{
-    console.log(arg)
+  addMagicClass(theArgument:string):void{
+    this.classArray.push(theArgument)
   }
 
 }

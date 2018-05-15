@@ -12,5 +12,10 @@ export class AppComponent {
    {name: 'dog', size: "medium"},
     {name:'hyena', size:"medium"},
      {name:'cyclops', size: "large"},
-      {name:'t-rex', size: "extra large"}]
+      {name:'t-rex', size: "extra large"},
+      {name: "cheetah", size:"cheetah sized"},
+      {name: "cheetah", size:"cheetah sized"},
+      {name: "cheetah", size:"cheetah sized"}
+
+    ]
 }

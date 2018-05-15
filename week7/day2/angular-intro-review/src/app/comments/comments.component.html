@@ -22,7 +22,7 @@
 
 <div *ngFor="let oneComment of comments">
 
-  <h5>{{oneComment.title}}</h5>
+  <h5>{{oneComment.title | capitalize}}</h5>
 
   <p>{{oneComment.content}}</p>
 

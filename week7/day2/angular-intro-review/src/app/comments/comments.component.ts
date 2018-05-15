@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class CommentsComponent implements OnInit {
 
   comments:Array<any> = [
-    {title: "Great Article", content: "Loved the article as always, great point about the upliftingness of humanity" },
-    {title: "Can't believe you're a professional reporter", content:  "Worst piece of suppsed news I've ever wasted my time reading."},
-    {title: "Everyone Chill Out", content: "This comment section is a bit harsh no?  Tone it down, why dont ya?"}
+    {title: "great Article", content: "Loved the article as always, great point about the upliftingness of humanity" },
+    {title: "can't BELIEVE you're a PROFESSIONAL reporter", content:  "Worst piece of suppsed news I've ever wasted my time reading."},
+    {title: "eVeRyOnE cHILl oUt", content: "This comment section is a bit harsh no?  Tone it down, why dont ya?"}
   ]
 
   newComment = {title: "", content:""}

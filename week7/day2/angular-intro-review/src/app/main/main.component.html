@@ -1,13 +1,14 @@
-<h1>Today's Article</h1>
+<h1 [ngClass]="classArray">Today's Article</h1>
 
 <div>
   <h2>{{title}}</h2>
+  <h4> {{theDate | date:'MM/dd/yy, h:mm a'}} </h4>
 
   <img [src]="imagePath">
 
   <input #blah />
 
-  <button type="button" (click)="sayHi(blah.value)">say HI</button>
+  <button type="button" (click)="addMagicClass(blah.value)">say HI</button>
 
   <p>{{content}}</p>
 
