@@ -1,0 +1,29 @@
+<!-- <form>
+  <h3>Add a Comment</h3>
+  <p>Title</p>
+  <input  #theTitle/>
+  <p>Content</p>
+  <input  #theContent/>
+
+  <button type="button"(click)="createNewComment(theTitle.value, theContent.value)">Submit</button>
+</form> -->
+
+<form>
+  <h3>Add a Comment</h3>
+  <p>Title</p>
+  <input [(ngModel)]="newComment.title" name="blah"  />
+  <p>Content</p>
+  <input  [(ngModel)]="newComment.content" name="whatever"/>
+
+  <button (click)="addNew()">Add Comment</button>
+
+</form>
+
+
+<div *ngFor="let oneComment of comments">
+
+  <h5>{{oneComment.title}}</h5>
+
+  <p>{{oneComment.content}}</p>
+
+</div>
