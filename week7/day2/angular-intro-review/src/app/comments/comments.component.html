@@ -21,9 +21,5 @@
 
 
 <div *ngFor="let oneComment of comments">
-
-  <h5>{{oneComment.title | capitalize}}</h5>
-
-  <p>{{oneComment.content}}</p>
-
+<app-single-comment [oneSingleComment]="oneComment"></app-single-comment>
 </div>

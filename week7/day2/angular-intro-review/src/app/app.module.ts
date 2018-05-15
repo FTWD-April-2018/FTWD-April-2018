@@ -7,13 +7,15 @@ import { MainComponent } from './main/main.component';
 import { CommentsComponent } from './comments/comments.component';
 
 import { CapitalizePipe } from './pipes/capitalize.pipe';
+import { SingleCommentComponent } from './single-comment/single-comment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     CommentsComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    SingleCommentComponent
   ],
   imports: [
     BrowserModule,
