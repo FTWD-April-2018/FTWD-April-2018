@@ -1,0 +1,26 @@
+<h1 [ngClass]="classArray">Today's Article</h1>
+
+<div>
+  <h2>{{title}}</h2>
+  <h4> {{theDate | date:'MM/dd/yy, h:mm a'}} </h4>
+
+  <img [src]="imagePath">
+
+  <input #blah />
+
+  <button type="button" (click)="addMagicClass(blah.value)">Change CSS</button>
+
+  <p>{{content}}</p>
+
+</div>
+
+
+<div>
+
+  <!-- <input [(ngModel)]="secretPhrase" >
+
+<h2>{{secretPhrase}}</h2> -->
+
+</div>
+
+<app-comments></app-comments>

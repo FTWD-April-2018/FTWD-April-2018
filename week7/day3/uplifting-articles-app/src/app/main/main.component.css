@@ -1,0 +1,19 @@
+img{
+  width: 400px;
+}
+
+.big{
+  font-size: 80px;
+}
+
+.purple{
+  color: purple;
+}
+
+.green-background{
+  background-color: green;
+}
+
+.fancy{
+  font-style: italic;
+}
