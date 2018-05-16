@@ -1,0 +1,50 @@
+<div class="food-list-div">
+
+    <button (click)="toggleForm()" type="button">Add A New Food To The List</button>
+
+    <form *ngIf = "isFormShowing">
+      <p>Add a food to the list</p>
+      <label>Name</label>
+      <input type="text" name="name" [(ngModel)]="newFood.name">
+
+      <label>Calories</label>
+      <input type="text" name="calories" [(ngModel)]="newFood.calories">
+
+      <label>Image</label>
+      <input type="text" name="image" [(ngModel)]="newFood.image">
+
+      <button type="button" (click)="addNewFood()">Submit</button>
+
+    </form>
+
+
+<h3>Search For Foods</h3>
+<input type="text"  [(ngModel)]="searchTerm" (keyup)="filterFoods()">
+
+    <div *ngFor="let food of resultsArray">
+
+      <h3>{{food.name}}</h3>
+      <h6>Calories: {{food.calories}}</h6>
+      <img [src]="food.image" [alt]="food.name">
+      <br>
+      <button type="button" (click)="addToList(food)">Add To Todays Foods</button>
+
+    </div>
+
+</div>
+<!--end the left column  -->
+
+
+<div class="todays-foods">
+<h3>Today's Foods</h3>
+<h4>Total Calories: {{todaysCalories}} </h4>
+
+<div *ngFor="let oneFood of todaysFoods">
+  <h3>{{oneFood.name}}</h3>
+  <h6>Calories: {{oneFood.calories}}</h6>
+  <img [src]="oneFood.image" [alt]="oneFood.name">
+</div>
+
+
+
+</div>
