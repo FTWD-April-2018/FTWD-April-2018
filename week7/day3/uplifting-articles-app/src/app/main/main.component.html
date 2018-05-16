@@ -1,5 +1,7 @@
 <h1 [ngClass]="classArray">Today's Article</h1>
 
+<button type="button" (click)="incFunction()">Increment it</button>
+
 <div>
   <h2>{{title}}</h2>
   <h4> {{theDate | date:'MM/dd/yy, h:mm a'}} </h4>

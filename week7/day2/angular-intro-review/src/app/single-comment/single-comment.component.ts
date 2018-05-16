@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SingleCommentComponent implements OnInit {
 
 
-  @Input() oneSingleComment: any;
+  @Input() oneSingleComment: any
 
   constructor() { }
 

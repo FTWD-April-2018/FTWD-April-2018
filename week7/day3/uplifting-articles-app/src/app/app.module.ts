@@ -9,6 +9,9 @@ import { CommentsComponent } from './comments/comments.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { SingleCommentComponent } from './single-comment/single-comment.component';
 import { MyAboutComponent } from './my-about/my-about.component';
+import {StaffService} from './services/staff.service';
+
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -31,7 +34,7 @@ const routes: Routes = [
      FormsModule,
      RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [StaffService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

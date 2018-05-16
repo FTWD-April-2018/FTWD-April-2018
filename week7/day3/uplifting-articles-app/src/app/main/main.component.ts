@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {StaffService} from '../services/staff.service';
 
 @Component({
   selector: 'app-main',
@@ -19,11 +20,14 @@ theDate:Number = Date.now();
 
 classArray:Array<String> = [];
 
-  constructor() { }
+  constructor(private theService: StaffService) { }
   ngOnInit() {
   }
 
 
+incFunction(){
+  this.theService.increment();
+}
 
   addMagicClass(theArgument:string):void{
     this.classArray.push(theArgument)

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { SingleCommentComponent } from '../single-comment/single-comment.component';
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
