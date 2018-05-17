@@ -21,4 +21,18 @@ export class TodolistService {
     .map((responseFromApi) => responseFromApi.json())
   }
 
+
+  deleteTask(id){
+    const body = {};
+    return this.myHttp.post(`http://localhost:3000/task/delete/${id}`, body)
+    .map((responseFromApi) => responseFromApi.json())
+  }
+
+
+  createNewTask(theWholeTaskObject){
+    return this.myHttp.post(`http://localhost:3000/tasks`, theWholeTaskObject)
+    .map((responseFromApi) => responseFromApi.json())
+  }
+
+
 }

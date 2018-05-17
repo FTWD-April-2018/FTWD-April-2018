@@ -1,19 +1,38 @@
+<div class="floating-left">
 <h1>Task List</h1>
-
 <ul>
 <li *ngFor="let oneTask of allTheTasks">
-<h3>{{oneTask.title}}</h3>
-<p>{{oneTask.content}}</p>
-<p>Urgency Level: {{oneTask.urgency}}</p>
-<p>{{oneTask._id}}</p>
-
+<a [routerLink]="['/task', oneTask._id]"><h3>{{oneTask.title}}</h3></a>
+<button type="button" (click)="deleteTask(oneTask._id)" >Delete</button>
 <p *ngIf="oneTask.doneYet">
   This Task Has Already Been Completed
 </p>
 <p *ngIf="!oneTask.doneYet">
   This Task Has Not Yet Been Completed
 </p>
-
-
 </li>
 </ul>
+
+</div>
+
+
+
+<div class="floating-right">
+
+<button type="button" (click)="toggleForm()">Add New Task</button>
+<br>
+<form *ngIf="isFormShowing">
+  <label>Title</label>
+  <input [(ngModel)]="newTask.title" type="text" name="title"/>
+  <br>
+  <label>Content of Task</label>
+    <input  [(ngModel)]="newTask.content" type="text" name="content"/>
+    <br>
+  <label>What is the Urgency of the Task</label>
+    <input  [(ngModel)]="newTask.urgency" type="text" name="urgency"/>
+    <br>
+    <button (click)="addNewTask()" type="button"> Submit </button>
+</form>
+
+
+</div>
