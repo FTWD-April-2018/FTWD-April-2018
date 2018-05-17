@@ -16,4 +16,9 @@ export class TodolistService {
     .map((responseFromApi) => responseFromApi.json())
   }
 
+  getOneTask(theID){
+    return this.myHttp.get(`http://localhost:3000/${theID}`)
+    .map((responseFromApi) => responseFromApi.json())
+  }
+
 }

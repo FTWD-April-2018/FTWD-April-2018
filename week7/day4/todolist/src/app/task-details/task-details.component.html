@@ -1,0 +1,12 @@
+<h1>Task Details</h1>
+
+<h2>{{theTask.title}}</h2>
+<p>{{theTask.content}}</p>
+<p>Urgency Level: {{theTask.urgency}}</p>
+
+<p *ngIf="theTask.doneYet">
+  This Task Has Already Been Completed
+</p>
+<p *ngIf="!theTask.doneYet">
+  This Task Has Not Yet Been Completed
+</p>
