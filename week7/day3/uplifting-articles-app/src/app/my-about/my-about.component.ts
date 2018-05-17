@@ -31,7 +31,7 @@ export class MyAboutComponent implements OnInit {
         this.theStaffMember = this.myService.staffArray.find((oneMember)=>{
           return oneMember.id === Number(theID)
         })
-      };
+      });
   }
 
 }
