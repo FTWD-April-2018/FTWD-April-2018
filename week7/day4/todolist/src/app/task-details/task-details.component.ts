@@ -14,19 +14,34 @@ export class TaskDetailsComponent implements OnInit {
 
   theTask: any = {};
 
+  theUpdates:any = {};
+
   constructor(
     private myService:TodolistService,
     private route: ActivatedRoute
    ) { }
 
+  getTheTask(id){
+    this.myService.getOneTask(id)
+    .subscribe((responseFromService)=>{
+      this.theTask = responseFromService
+    })
+  }
+
+updateTheTask(idOfTask){
+  this.myService.updateTask(idOfTask,this.theUpdates)
+  .subscribe(()=>{
+      this.getTheTask(idOfTask)
+      this.theUpdates = {};
+  })
+
+}
+
   ngOnInit() {
     this.route.params
     .subscribe((theParams) => {
       const theID = theParams['id'];
-      this.myService.getOneTask(theID)
-      .subscribe((responseFromService)=>{
-        this.theTask = responseFromService
-      })
+      this.getTheTask(theID)
     })
   }
 

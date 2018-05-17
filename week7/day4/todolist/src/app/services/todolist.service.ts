@@ -35,4 +35,10 @@ export class TodolistService {
   }
 
 
+  updateTask(theID, theUpdates){
+    return this.myHttp.post(`http://localhost:3000/task/update/${theID}`, theUpdates)
+    .map((responseFromApi) => responseFromApi.json())
+  }
+
+
 }

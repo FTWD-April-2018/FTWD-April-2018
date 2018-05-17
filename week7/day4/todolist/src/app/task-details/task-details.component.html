@@ -1,4 +1,4 @@
-
+<div class="floating-left">
 <a [routerLink]="['/index']">Back To Index</a>
 <h1>Task Details</h1>
 
@@ -12,3 +12,24 @@
 <p *ngIf="!theTask.doneYet">
   This Task Has Not Yet Been Completed
 </p>
+</div>
+
+<div class="floating-right">
+
+<h2>Edit this Task</h2>
+
+<label>Title</label>
+<input [(ngModel)]="theUpdates.title" type="text" name="title">
+<br>
+<label>Content</label>
+<input [(ngModel)]="theUpdates.content" type="text" name="content">
+<br>
+<label>Urgency</label>
+<input [(ngModel)]="theUpdates.urgency" type="text" name="urgency">
+<br>
+
+<button (click)="updateTheTask(theTask._id)" type="button">Submit Changes</button>
+
+
+
+</div>

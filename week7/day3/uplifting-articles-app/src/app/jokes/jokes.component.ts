@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {JokeService} from '../services/joke.service'
 import { Observable } from 'rxjs/Observable';
-import {Map} from 'rxjs/map'
-import 'rxjs/Rx'
+
 
 @Component({
   selector: 'app-jokes',
@@ -11,7 +10,8 @@ import 'rxjs/Rx'
 })
 export class JokesComponent implements OnInit {
 
-  joke$: Observable<string>;
+  // joke$: Observable<string>;
+  joke: any = ""
 
   constructor(private myJokeService: JokeService) { }
 
@@ -20,8 +20,13 @@ export class JokesComponent implements OnInit {
 
 
   getRandomJoke() {
-   this.joke$ = this.myJokeService.getRandom();
-   console.log(this.joke$)
+   // this.joke$ = this.myJokeService.getRandom()
+   this.myJokeService.getRandom()
+   .subscribe((theJoke)=>{
+     this.joke = theJoke
+   })
+
+
 
 }
 
