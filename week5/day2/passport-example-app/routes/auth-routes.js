@@ -11,7 +11,7 @@ const ensureLogin = require("connect-ensure-login");
 
 
 // Bcrypt to encrypt passwords
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const bcryptSalt = 10;
 
 authRoutes.get("/signup", (req, res, next) => {

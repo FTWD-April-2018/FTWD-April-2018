@@ -7,7 +7,7 @@
     "dev": "DEBUG=passport-example-app:* nodemon ./bin/www"
   },
   "dependencies": {
-    "bcrypt": "^2.0.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "~1.18.2",
     "connect-ensure-login": "^0.1.1",
     "connect-flash": "^0.1.1",
