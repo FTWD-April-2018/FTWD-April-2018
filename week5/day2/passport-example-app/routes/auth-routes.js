@@ -14,22 +14,22 @@ const ensureLogin = require("connect-ensure-login");
 const bcrypt = require("bcryptjs");
 const bcryptSalt = 10;
 
-authRoutes.get("/signup", (req, res, next) => {
-  res.render("auth/signup");
-});
+// authRoutes.get("/signup", (req, res, next) => {
+//   res.render("auth/signup");
+// });
 
 authRoutes.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
 
   if (username === "" || password === "") {
-    res.render("auth/signup", { message: "Please indicate username and password" });
+    res.status(400).json({ message: 'Provide username and password' });
     return;
   }
 
   User.findOne({ username:username }, "username", (err, user) => {
     if (user !== null) {
-      res.render("auth/signup", { message: "Sorry, that username already exists" });
+      res.status(400).json({ message: 'The username already exists' });
       return;
     }
 
@@ -43,33 +43,72 @@ authRoutes.post("/signup", (req, res, next) => {
 
     newUser.save((err) => {
       if (err) {
-        res.render("auth/signup", { message: "Something went wrong" });
-      } else {
-        res.redirect("/");
+        res.status(400).json({ message: 'Something went wrong' });
+        return
       }
+
+
+      req.login(newUser, (err) => {
+        if (err) {
+          res.status(500).json({ message: 'Something went wrong' });
+          return;
+        }
+
+        res.status(200).json(req.user);
+      });
+
+
+
     });
   });
 });
 
 
 
-authRoutes.get("/login", (req, res, next) => {
-  res.render("auth/login", { "message": req.flash("error") });
+// authRoutes.get("/login", (req, res, next) => {
+//   res.render("auth/login", { "message": req.flash("error") });
+// });
+
+authRoutes.post('/login', (req, res, next) => {
+  passport.authenticate('local', (err, theUser, failureDetails) => {
+    if (err) {
+      res.status(500).json({ message: 'Something went wrong' });
+      return;
+    }
+
+    if (!theUser) {
+      res.status(401).json(failureDetails);
+      return;
+    }
+
+    req.login(theUser, (err) => {
+      if (err) {
+        res.status(500).json({ message: 'Something went wrong' });
+        return;
+      }
+
+      // We are now logged in (notice req.user)
+      res.status(200).json(req.user);
+    });
+  })(req, res, next);
 });
 
-authRoutes.post("/login", passport.authenticate("local",
-{
-  successRedirect: "/",
-  failureRedirect: "/login",
-  failureFlash: true,
-  passReqToCallback: true
-}
-));
-
-authRoutes.get("/logout", (req, res) => {
+authRoutes.post("/logout", (req, res) => {
   req.logout();
-  res.redirect("/login");
+  res.status(200).json({ message: 'Success' });
 });
+
+
+authRoutes.get('/loggedin', (req, res, next) => {
+  if (req.isAuthenticated()) {
+    res.json(req.user);
+    return;
+  }
+
+  res.json({ message: 'Unauthorized' });
+});
+
+
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
@@ -90,10 +129,14 @@ function checkRoles(role) {
   }
 }
 
-authRoutes.get('/private', checkRoles('ADMIN'), (req, res) => {
-  res.render('auth/private', {user: req.user});
-});
+authRoutes.get('/private', (req, res, next) => {
+  if (req.isAuthenticated()) {
+    res.json({ message: 'This is a private message' });
+    return;
+  }
 
+  res.status(403).json({ message: 'Unauthorized' });
+});
 
 authRoutes.get("/auth/google", passport.authenticate("google", {
   scope: ["https://www.googleapis.com/auth/plus.login",

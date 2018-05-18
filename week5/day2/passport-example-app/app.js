@@ -17,6 +17,7 @@ const LocalStrategy  = require("passport-local").Strategy;
 const app            = express();
 const flash          = require("connect-flash");
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const cors           = require('cors');
 
 
 
@@ -127,10 +128,13 @@ passport.use(new GoogleStrategy({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cors());
+
+
 const index = require('./routes/index');
 app.use('/', index);
 const authRouteVariableThing = require('./routes/auth-routes')
-app.use('/', authRouteVariableThing);
+app.use('/api', authRouteVariableThing);
 const roomsRoutes = require('./routes/rooms-routes');
 app.use('/', roomsRoutes);
 
